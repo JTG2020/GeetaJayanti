@@ -52,13 +52,14 @@ function makeCellMedia(media, type) {
   return '<span class="muted">—</span>';
 }
 
+// Table rendering is deprecated in favor of accordion/sequence view for mobile-first UX.
 function renderTable(items) {
+  // keep compatibility: if table exists render minimally for desktop
   const tbody = document.querySelector('#media-table tbody');
+  if (!tbody) return;
   tbody.innerHTML = '';
   items.forEach(it => {
     const tr = document.createElement('tr');
-
-    // Adhyay/Chapter cell - include optional pdf link if present
     const titleCell = document.createElement('td');
     titleCell.innerHTML = `
       <div class="row-title">
@@ -71,27 +72,16 @@ function renderTable(items) {
     `;
     tr.appendChild(titleCell);
 
-    // Geeta Aarati
-    const gaCell = document.createElement('td');
-    gaCell.innerHTML = makeCellMedia(it.geeta_aarati, 'audio');
-    tr.appendChild(gaCell);
-
-    // Hanumaan Chalisa
-    const hcCell = document.createElement('td');
-    hcCell.innerHTML = makeCellMedia(it.hanumaan_chalisa, 'audio');
-    tr.appendChild(hcCell);
-
-    // Deep Prajwalan
-    const dpCell = document.createElement('td');
-    dpCell.innerHTML = makeCellMedia(it.deep_prajwalan, 'video');
-    tr.appendChild(dpCell);
-
+    const gaCell = document.createElement('td'); gaCell.innerHTML = makeCellMedia(it.geeta_aarati, 'audio'); tr.appendChild(gaCell);
+    const hcCell = document.createElement('td'); hcCell.innerHTML = makeCellMedia(it.hanumaan_chalisa, 'audio'); tr.appendChild(hcCell);
+    const dpCell = document.createElement('td'); dpCell.innerHTML = makeCellMedia(it.deep_prajwalan, 'video'); tr.appendChild(dpCell);
     tbody.appendChild(tr);
   });
 }
 
 function renderCards(items) {
   const list = document.getElementById('card-list');
+  if (!list) return;
   list.innerHTML = '';
   items.forEach(it => {
     const card = document.createElement('article');
@@ -99,13 +89,62 @@ function renderCards(items) {
     card.innerHTML = `
       <h3>${it.title}</h3>
       ${it.subtitle ? `<div class="meta">${it.subtitle}</div>` : ''}
-      <div class="row"><strong>Geeta Aarati</strong><div>${makeCellMedia(it.geeta_aarati)}</div></div>
-      <div class="row"><strong>Hanumaan Chalisa</strong><div>${makeCellMedia(it.hanumaan_chalisa)}</div></div>
-      <div class="row"><strong>Deep Prajwalan</strong><div>${makeCellMedia(it.deep_prajwalan)}</div></div>
       ${it.pdf ? `<div class="row"><a href="${it.pdf}" target="_blank" rel="noopener">Open Chapter PDF</a></div>` : ''}
     `;
     list.appendChild(card);
   });
+}
+
+// New: render accordion sections in specific grouped order for mobile-first UX
+function renderAccordion(items) {
+  const container = document.getElementById('accordion');
+  if (!container) return;
+  container.innerHTML = '';
+
+  // Desired sequence for Chapters
+  const order = ['adhyay-12','adhyay-15','adhyay-09','adhyay-14','adhyay-03','adhyay-06'];
+  const byId = items.reduce((acc, it) => { acc[it.id] = it; return acc }, {});
+
+  // Helper to create a panel
+  function createPanel(heading, innerHTML) {
+    const panel = document.createElement('div'); panel.className = 'panel';
+    const btn = document.createElement('button'); btn.className = 'header'; btn.type = 'button'; btn.setAttribute('aria-expanded','false'); btn.innerText = heading;
+    const body = document.createElement('div'); body.className = 'panel-body'; body.hidden = true; body.innerHTML = innerHTML;
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      body.hidden = expanded;
+    });
+    panel.appendChild(btn); panel.appendChild(body);
+    return panel;
+  }
+
+  // Chapters panel: list chapters sequentially as links to PDFs or titles
+  const chaptersHTML = order.map(id => {
+    const it = byId[id];
+    if (!it) return '';
+    return `<div class="media-row"><strong>${it.title}</strong>${it.pdf ? ` <div><a href="${it.pdf}" target="_blank" rel="noopener">Open PDF</a></div>` : ''}</div>`;
+  }).join('');
+  container.appendChild(createPanel('Adhyay / Chapters', chaptersHTML));
+
+  // Geeta Aarati panel - include PDF then MP3 if present
+  const gaPdf = items.find(i => i.geeta_aarati && i.geeta_aarati.toLowerCase().endsWith('.pdf'));
+  const gaAudio = items.find(i => i.geeta_aarati && (i.geeta_aarati.toLowerCase().endsWith('.mp3') || i.geeta_aarati.toLowerCase().endsWith('.mpeg') || i.geeta_aarati.toLowerCase().endsWith('.ogg')));
+  const geetaHTML = `
+    <div class="media-row">${gaPdf ? `<a href="${gaPdf.geeta_aarati}" target="_blank" rel="noopener">GeetaAarti PDF</a>` : ''}</div>
+    <div class="media-row">${gaAudio ? makeCellMedia(gaAudio.geeta_aarati,'audio') : ''}</div>
+  `;
+  container.appendChild(createPanel('Geeta Aarati', geetaHTML));
+
+  // Hanumaan Chalisa panel - show only the first occurrence or the specific file
+  const hFile = items.reduce((found, it) => found || it.hanumaan_chalisa || null, null);
+  const hanumaanHTML = hFile ? (typeof hFile === 'string' ? makeCellMedia(hFile,'video') : (hFile.type === 'video' ? makeCellMedia(hFile,'video') : '')) : '<span class="muted">—</span>';
+  container.appendChild(createPanel('Hanumaan Chalisa', `<div class="media-row">${hanumaanHTML}</div>`));
+
+  // Deep Prajwalan panel - first occurrence
+  const dp = items.reduce((found, it) => found || it.deep_prajwalan || null, null);
+  const dpHTML = dp ? makeCellMedia(dp,'audio') : '<span class="muted">—</span>';
+  container.appendChild(createPanel('Deep Prajwalan', `<div class="media-row">${dpHTML}</div>`));
 }
 
 function applySearch(items, q) {
@@ -131,6 +170,7 @@ async function init() {
     const filtered = applySearch(items, q);
     renderTable(filtered);
     renderCards(filtered);
+    renderAccordion(filtered);
     // show/hide card area based on viewport
     if (window.innerWidth <= 880) {
       cardList.hidden = false;

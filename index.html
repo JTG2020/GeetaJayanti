@@ -26,23 +26,9 @@
       <button id="refresh">Refresh</button>
     </section>
 
-    <section id="table-section" aria-live="polite">
-      <table id="media-table" class="media-table" role="table" aria-label="Media table">
-        <thead>
-          <tr>
-            <th>Adhyay / Chapters</th>
-            <th>Geeta Aarati</th>
-            <th>Hanumaan Chalisa</th>
-            <th>Deep Prajwalan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- JS will populate -->
-        </tbody>
-      </table>
-
-      <!-- Mobile card list for small screens (populated by same JS) -->
-      <div id="card-list" class="card-list" hidden>
+    <section id="accordion-section" aria-live="polite">
+      <!-- Accessible accordion. JS will populate the sections in the order requested. -->
+      <div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
         <!-- JS will populate -->
       </div>
     </section>

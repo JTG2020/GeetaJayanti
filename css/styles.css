@@ -137,6 +137,14 @@ body{
 .card h3{margin:.25rem 0 .6rem}
 .card .row{margin:.4rem 0}
 
+/* Accordion styles */
+.accordion{display:grid;gap:0.75rem}
+.accordion .panel{background:var(--card-bg);border-radius:10px;padding:0.5rem;box-shadow:0 6px 20px rgba(16,24,40,0.05);overflow:hidden}
+.accordion .panel button.header{width:100%;text-align:left;padding:.9rem 1rem;border:0;background:transparent;font-weight:700;font-size:1rem;cursor:pointer;border-radius:8px}
+.accordion .panel .panel-body{padding:0 1rem 1rem;border-top:1px solid rgba(15,23,42,0.04)}
+.accordion .media-row{display:flex;flex-direction:column;gap:.5rem;padding:.6rem 0}
+.accordion audio, .accordion video{width:100%;max-width:640px}
+
 /* notes and footer */
 .notes{
   margin-top:1.25rem;
