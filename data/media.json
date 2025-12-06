@@ -2,7 +2,7 @@
   {
     "id": "adhyay-03",
     "title": "Adhyay 03 — Karma Yoga",
-    "geeta_aarati": "assets/pdf/GeetaArati.mp3",
+    "geeta_aarati": "assets/pdfs/GeetaAarti.pdf",
     "hanumaan_chalisa": { "type": "video", "src": "assets/mp4/hanumaan-chalisa.mp4" },
     "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
     "pdf": "assets/pdfs/05_03_karmayog.pdf"
@@ -16,7 +16,7 @@
   {
     "id": "adhyay-09",
     "title": "Adhyay 09 — Raja-Vidya-Raja-Guhya Yoga",
-    "pdf": "assets/pdfs/03_09_Rājavidyārājaguhyayoga.pdf"
+    "pdf": "assets/pdfs/03_09_rājavidyārājaguhyayoga.pdf"
   },
   {
     "id": "adhyay-12",
