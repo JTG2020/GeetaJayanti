@@ -28,7 +28,7 @@ function makeCellMedia(media, type) {
   if (!media) return '<span class="muted">—</span>';
   if (typeof media === 'string') {
     const ext = media.split('.').pop().toLowerCase();
-    if (ext === 'mp3' || ext === 'ogg') {
+    if (ext === 'mp3' || ext === 'ogg' || ext === 'mpeg') {
       return `<audio controls preload="none"><source src="${media}"></audio>`;
     }
     if (ext === 'mp4' || ext === 'webm') {

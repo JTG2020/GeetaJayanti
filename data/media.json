@@ -1,17 +1,44 @@
 [
   {
+    "id": "adhyay-03",
+    "title": "Adhyay 03 — Karma Yoga",
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
+    "pdf": "assets/pdfs/05_03_karmayog.pdf"
+  },
+  {
+    "id": "adhyay-06",
+    "title": "Adhyay 06 — Atma-Samyama Yoga",
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
+    "pdf": "assets/pdfs/06_06_ātmasaṃyamayoga.pdf"
+  },
+  {
+    "id": "adhyay-09",
+    "title": "Adhyay 09 — Raja-Vidya-Raja-Guhya Yoga",
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
+    "pdf": "assets/pdfs/03_09_rājavidyārājaguhyayoga.pdf"
+  },
+  {
     "id": "adhyay-12",
     "title": "Adhyay 12 — Bhakti Yoga",
-    "subtitle": "Bhakti Yoga",
-    "geeta_aarati": "assets/pdf/GeetaAarti.pdf",
-    "hanumaan_chalisa": { "type": "video", "src": "assets/mp4/hanumaan-chalisa.mp4" },
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
     "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
     "pdf": "assets/pdfs/01_12_BhaktiYoga.pdf"
   },
   {
+    "id": "adhyay-14",
+    "title": "Adhyay 14 — Guna-Traya-Vibhaga Yoga",
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
+    "pdf": "assets/pdfs/04_14_guṇatrayavibhāgayoga.pdf"
+  },
+  {
     "id": "adhyay-15",
-    "title": "Adhyay 15 — Purushottam oga",
-    "geeta_aarati": "assets/mp3/geeta-aarati.mp3",
+    "title": "Adhyay 15 — Purushottam Yoga",
+    "geeta_aarati": "assets/mp3/Geeta arati.mp3",
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
     "pdf": "assets/pdfs/02_15_PurushottamYoga.pdf"
   }
 ]
