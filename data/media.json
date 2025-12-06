@@ -1,9 +1,9 @@
 [
   {
-    "id": "adhyay-1",
-    "title": "Adhyay 1 — Arjuna Vishada Yoga",
-    "subtitle": "Sample chapter entry",
-    "geeta_aarati": "assets/media/adhyay-1/geeta-aarati.mp3",
+    "id": "adhyay-12",
+    "title": "Adhyay 12 — BhaktiYoga",
+    "subtitle": "BhaktiYoga",
+    "geeta_aarati": "assets/media/adhyay-12/geeta-aarati.mp3",
     "hanumaan_chalisa": "assets/media/adhyay-1/hanumaan-chalisa.mp3",
     "deep_prajwalan": { "type": "video", "src": "assets/media/adhyay-1/deep-prajwalan.mp4" },
     "pdf": "assets/media/adhyay-1/notes.pdf"
