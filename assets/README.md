@@ -1,15 +1,16 @@
-Place your media files under this directory.
+```text
+Assets folder layout
 
-Suggested organization:
 assets/
-  bg.jpg                       <-- Light Mahabharat scene background (required to match site appearance)
-  media/
-    adhyay-1/
-      geeta-aarati.mp3
-      hanumaan-chalisa.mp3
-      deep-prajwalan.mp4
-      notes.pdf
-    adhyay-2/
-      ...
+  bg.jpg                       <-- Light Mahabharat scene background (expected by CSS)
+  pdfs/
+    <all your .pdf files here>
+  mp3/
+    <all your audio files here, .mp3 or .mpe or .mpeg>
+  mp4/
+    <all your .mp4 video files here>
 
-After adding files, edit data/media.json to add or update entries so the site will render them. Use relative paths (as in the sample).
+Notes:
+- Audio file extensions supported: .mp3, .mpe, .mpeg — use the exact extension in data/media.json.
+- Filenames are preserved from the original files; if you have duplicates across different folders you may want to rename to keep them unique.
+```

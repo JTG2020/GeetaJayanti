@@ -1,27 +1,32 @@
+```text
 # Shrimad Bhagavad Geeta Jayanti — Static site
 
 This repository contains a static single-page app for hosting PDFs, audios and videos for "Shrimad Bhagavad Geeta Jayanti".
 
-Features:
-- Title set to "Shrimad Bhagavad Geeta Jayanti".
-- A table with 4 columns:
-  - Adhyay / Chapters
-  - Geeta Aarati
-  - Hanumaan Chalisa
-  - Deep Prajwalan
-- Responsive: table on desktop, card layout on mobile.
-- Data-driven: edit `data/media.json` to add chapters and file URLs.
-- Uses HTML5 audio/video players and links to PDFs.
+Status
+- Media files have been reorganized into flat directories under `assets/`:
+  - PDFs: assets/pdfs/
+  - Audio: assets/mp3/  (supports .mp3, .mpe, .mpeg)
+  - Video: assets/mp4/
 
-How to add media
-1. Put files under `assets/media/<slug>/` (slug examples: `adhyay-1`, `adhyay-2`).
-2. Edit `data/media.json` and add an entry for each chapter. See `data/media.json` for examples.
-3. Commit and push to GitHub.
+How to add new media
+1. Put the files under the appropriate folder:
+   - PDFs -> assets/pdfs/<filename>.pdf
+   - Audio -> assets/mp3/<filename>.(mp3|mpe|mpeg)
+   - Video -> assets/mp4/<filename>.mp4
 
-Hosting on GitHub Pages
-1. Create a repository on GitHub (or use an existing one).
-2. Push the contents of this project to the `main` branch (or `gh-pages` branch).
-3. In repository Settings → Pages, choose the branch (main) and root folder (`/`) and save.
-4. Your site will be available at `https://<owner>.github.io/<repo>/` after a few minutes.
+2. Edit `data/media.json` and set the file paths to the exact paths you used (relative paths as above).
 
-If you want me to push these files, confirm and accept the authorization prompt when it appears.
+3. Commit and push (for example):
+   git add assets data/media.json
+   git commit -m "Add media files and update manifest"
+   git push origin reorganize/media-folders
+
+Enabling GitHub Pages
+1. In the repository Settings → Pages, choose branch: main (or the branch you merged into main) and folder: / (root).
+2. Wait a few minutes for the site to be published.
+
+Notes
+- Filenames are preserved when moving — make sure the names in `data/media.json` exactly match the files under assets/.
+- If multiple files share the same filename, add a prefix/suffix (for example, adhyay-1-geeta-aarati.mpe) to avoid collisions.
+```
