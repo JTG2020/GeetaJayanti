@@ -159,10 +159,7 @@ body{
 }
 
 /* responsive */
-@media (max-width:880px){
-  .media-table{display:none}
-  #card-list[hidden=false]{display:grid}
-}
-@media (min-width:881px){
-  .card-list{display:none}
-}
+/* Always use accordion layout (mobile-first UI for all viewports) */
+.media-table{display:none}
+.card-list{display:none}
+.accordion{display:grid;gap:0.75rem}

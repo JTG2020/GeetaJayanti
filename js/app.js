@@ -163,24 +163,23 @@ async function init() {
   const items = Array.isArray(raw) ? raw : [];
   const searchInput = document.getElementById('search');
   const refreshBtn = document.getElementById('refresh');
-  const cardList = document.getElementById('card-list');
+  const accordionEl = document.getElementById('accordion');
 
   function rerender() {
-    const q = searchInput.value.trim();
-    const filtered = applySearch(items, q);
-    renderTable(filtered);
-    renderCards(filtered);
-    renderAccordion(filtered);
-    // show/hide card area based on viewport
-    if (window.innerWidth <= 880) {
-      cardList.hidden = false;
-    } else {
-      cardList.hidden = true;
+    try {
+      const q = (searchInput && typeof searchInput.value === 'string') ? searchInput.value.trim() : '';
+      const filtered = applySearch(items, q);
+      // Render accordion only (single layout for all devices)
+      renderAccordion(filtered);
+      const el = document.getElementById('accordion');
+      if (el) el.hidden = false;
+    } catch (err) {
+      console.error('Error during rerender:', err);
     }
   }
 
-  searchInput.addEventListener('input', () => rerender());
-  refreshBtn.addEventListener('click', async () => {
+  if (searchInput) searchInput.addEventListener('input', () => rerender());
+  if (refreshBtn) refreshBtn.addEventListener('click', async () => {
     // re-fetch the manifest
     const newItems = await fetchMedia();
     if (Array.isArray(newItems)) {
@@ -190,14 +189,7 @@ async function init() {
     rerender();
   });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth <= 880) {
-      cardList.hidden = false;
-    } else {
-      cardList.hidden = true;
-    }
-  });
-
+  // No viewport dependent show/hide needed; always render accordion
   rerender();
 }
 
