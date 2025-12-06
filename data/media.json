@@ -1,19 +1,19 @@
 [
   {
     "id": "adhyay-12",
-    "title": "Adhyay 12 — BhaktiYoga",
-    "subtitle": "BhaktiYoga",
+    "title": "Adhyay 12 — Bhakti Yoga",
+    "subtitle": "Bhakti Yoga",
     "geeta_aarati": "assets/pdf/GeetaAarti.pdf",
     "hanumaan_chalisa": { "type": "video", "src": "assets/mp4/hanumaan-chalisa.mp4" },
     "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
     "pdf": "assets/pdfs/01_12_BhaktiYoga.pdf"
   },
   {
-    "id": "adhyay-2",
-    "title": "Adhyay 2 — Sankhya Yoga",
-    "geeta_aarati": "assets/mp3/geeta-aarati-adhyay-2.mpeg",
-    "hanumaan_chalisa": "assets/mp3/hanumaan-chalisa-adhyay-2.mpe",
-    "deep_prajwalan": { "type": "video", "src": "assets/mp4/deep-prajwalan-adhyay-2.mp4" },
+    "id": "adhyay-15",
+    "title": "Adhyay 15 — Purushottam oga",
+    "geeta_aarati": "assets/mp3/geeta-aarati.mp3",
+    // "hanumaan_chalisa": "assets/mp3/hanumaan-chalisa-adhyay-2.mpe",
+    // "deep_prajwalan": { "type": "video", "src": "assets/mp4/deep-prajwalan-adhyay-2.mp4" },
     "pdf": "assets/pdfs/02_15_PurushottamYoga.pdf"
   }
 ]
