@@ -6,7 +6,7 @@
     "geeta_aarati": "assets/mp3/geeta-aarati.mpe",
     "hanumaan_chalisa": "assets/mp3/hanumaan-chalisa.mpeg",
     "deep_prajwalan": { "type": "video", "src": "assets/mp4/deep-prajwalan.mp4" },
-    "pdf": "assets/pdfs/notes.pdf"
+    "pdf": "assets/pdfs/01_12_BhaktiYoga.pdf"
   },
   {
     "id": "adhyay-2",
@@ -14,6 +14,6 @@
     "geeta_aarati": "assets/mp3/geeta-aarati-adhyay-2.mpeg",
     "hanumaan_chalisa": "assets/mp3/hanumaan-chalisa-adhyay-2.mpe",
     "deep_prajwalan": { "type": "video", "src": "assets/mp4/deep-prajwalan-adhyay-2.mp4" },
-    "pdf": "assets/pdfs/notes-adhyay-2.pdf"
+    "pdf": "assets/pdfs/02_15_PurushottamYoga.pdf"
   }
 ]
