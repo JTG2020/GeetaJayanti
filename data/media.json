@@ -3,9 +3,9 @@
     "id": "adhyay-12",
     "title": "Adhyay 12 — BhaktiYoga",
     "subtitle": "BhaktiYoga",
-    "geeta_aarati": "assets/mp3/geeta-aarati.mpe",
-    "hanumaan_chalisa": "assets/mp3/hanumaan-chalisa.mpeg",
-    "deep_prajwalan": { "type": "video", "src": "assets/mp4/deep-prajwalan.mp4" },
+    "geeta_aarati": "assets/pdf/GeetaAarti.pdf",
+    "hanumaan_chalisa": { "type": "video", "src": "assets/mp4/hanumaan-chalisa.mp4" },
+    "deep_prajwalan": "assets/mp3/DeepPrajwalan.mpeg",
     "pdf": "assets/pdfs/01_12_BhaktiYoga.pdf"
   },
   {
